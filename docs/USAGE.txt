@@ -1,0 +1,41 @@
+================================================================================
+CUSTOM NMAP NSE SCRIPTS: CLI USAGE INSTRUCTIONS
+================================================================================
+
+1. Reference Script (http-headers)
+----------------------------------
+Dumps raw HTTP response headers.
+
+Command:
+  nmap -p 80 --script http-headers scanme.nmap.org
+
+
+2. Enhancement 1 (http-page-assets)
+-----------------------------------
+Parses DOM body to inventory links, scripts, stylesheets, and images.
+
+Default root scan:
+  nmap -p 80 --script http-page-assets scanme.nmap.org
+
+Scan custom path:
+  nmap -p 80 --script http-page-assets --script-args http-page-assets.path=/api scanme.nmap.org
+
+
+3. Enhancement 2 (http-method-matrix)
+-------------------------------------
+Actively probes HTTP verbs and maps response codes and content types.
+
+Default scan (probes GET, HEAD, POST, PUT, DELETE, PATCH, OPTIONS, TRACE):
+  nmap -p 80 --script http-method-matrix scanme.nmap.org
+
+Scan custom endpoint:
+  nmap -p 80 --script http-method-matrix --script-args http-method-matrix.path=/api/v1 scanme.nmap.org
+
+Probe specific verb list:
+  nmap -p 80 --script http-method-matrix --script-args 'http-method-matrix.methods="GET POST PUT DELETE PATCH"' scanme.nmap.org
+
+
+4. Simultaneous Multi-Script Execution
+--------------------------------------
+Run both enhanced scripts together:
+  nmap -p 80 --script http-page-assets,http-method-matrix scanme.nmap.org

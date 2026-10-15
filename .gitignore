@@ -1,0 +1,34 @@
+# Documents & Office files
+*.pdf
+*.docx
+*.doc
+*.odt
+*.rtf
+*.pptx
+*.xlsx
+
+# Screenshots & Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.bmp
+*.tiff
+*.drawio
+
+# Captures & Binary Dumps
+*.pcap
+*.pcapng
+*.cap
+*.dump
+*.bin
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
